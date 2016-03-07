@@ -1,0 +1,132 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv='Content-Type' content='text/html;charset=UTF-8'/>
+
+		<script  src="https://sapui5.netweaver.ondemand.com/resources/sap-ui-core.js"
+				id="sap-ui-bootstrap"
+				data-sap-ui-libs="sap.m,sap.ui.core, sap.ui.table, sap.ui.ux3, sap.suite.ui.commons, sap.viz"
+				data-sap-ui-theme="sap_bluecrystal">
+		</script>
+		<!-- only load the mobile lib "sap.m" and the "sap_bluecrystal" theme -->
+		
+		<style>  
+ .myBackgroundStyle .sapMPageBgStandard {  
+  background-image: url('smart_home.jpg'); 
+   opacity: 1;   
+ }  
+ .myBackgroundStyle .sapMListUl {  
+  opacity: 0.9;  
+ }  
+</style> 
+
+            <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.0.0/annyang.min.js"></script>
+
+		<script>
+		
+	
+				sap.ui.localResources("smart_home");
+				var app = new sap.m.App("app",{initialPage:"idv1"});
+				var page = sap.ui.view({id:"idv1", viewName:"smart_home.v1", type:sap.ui.core.mvc.ViewType.JS, });
+				page.addStyleClass("myBackgroundStyle");  
+				app.addPage(page);
+				
+				var page1 = sap.ui.view({
+					id:"idv2", 
+					viewName:"smart_home.v2", 
+					type:sap.ui.core.mvc.ViewType.JS,
+					showNavButton: true,
+					navButtonPress: function(){ 
+	 					app.back();	
+	 					 app.to("idv1");// when tapped, the back button should navigate back to page 1
+	 			         },
+					});
+				
+				app.addPage(page1);
+			//	app.setBackgroundImage('smart_home.jpg');
+			//	app.setBackgroundOpacity(1);
+				
+			var page2 = sap.ui.view({
+					id:"idv3", 
+					viewName:"smart_home.v3", 
+					type:sap.ui.core.mvc.ViewType.JS,
+					showNavButton: true,
+					navButtonPress: function(){ 
+	 					app.back();	
+	 					 app.to("idv1");// when tapped, the back button should navigate back to page 1
+	 			         },
+					});
+				
+				app.addPage(page2);
+				
+				var page3 = sap.ui.view({
+					id:"idv4", 
+					viewName:"smart_home.v4", 
+					type:sap.ui.core.mvc.ViewType.JS,
+					showNavButton: true,
+					navButtonPress: function(){ 
+	 					app.back();	
+	 					 app.to("idv1");// when tapped, the back button should navigate back to page 1
+	 			         },
+					});
+				
+				app.addPage(page3);
+				
+			     var page4 = sap.ui.view({
+					id:"idv5", 
+					viewName:"smart_home.v5", 
+					type:sap.ui.core.mvc.ViewType.JS,
+					showNavButton: true,
+					navButtonPress: function(){ 
+	 					app.back();	
+	 					 app.to("idv1");// when tapped, the back button should navigate back to page 1
+	 			         },
+					});
+				
+				app.addPage(page4);
+				
+				 var page5 = sap.ui.view({
+						id:"idv6", 
+						viewName:"smart_home.v6", 
+						type:sap.ui.core.mvc.ViewType.JS,
+						showNavButton: true,
+						navButtonPress: function(){ 
+		 					app.back();	
+		 					 app.to("idv1");// when tapped, the back button should navigate back to page 1
+		 			         },
+						});
+					
+					app.addPage(page5);
+				
+				if (annyang) {
+					  // Let's define our first command. First the text we expect, and then the function it should call
+					  var commands = {
+					    'manage': function() {
+					    	//alert("hello");
+					    	  app.to("idv2");	
+					    },
+					    'outlook': function() {
+					    	  app.to("idv5");	
+					    }
+					    
+					    
+					  };
+
+					  // Add our commands to annyang
+					  annyang.addCommands(commands);
+
+					  // Start listening. You can call this here, or attach this call to an event, button, etc.
+					  annyang.start();
+					}
+				
+				
+				
+				app.placeAt("content");
+		</script>
+
+	</head>
+	<body class="sapUiBody" role="application">
+		<div id="content"></div>
+	</body>
+</html>
